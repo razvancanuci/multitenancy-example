@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenancy.Host", "Multitenancy.Host\Multitenancy.Host.csproj", "{C8915276-2A91-4D8E-A755-AA34015D8CB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenancy.Database", "Multitenancy.Database\Multitenancy.Database.csproj", "{D962CEB7-317D-43B6-8662-03B729B388CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8915276-2A91-4D8E-A755-AA34015D8CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8915276-2A91-4D8E-A755-AA34015D8CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8915276-2A91-4D8E-A755-AA34015D8CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8915276-2A91-4D8E-A755-AA34015D8CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D962CEB7-317D-43B6-8662-03B729B388CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D962CEB7-317D-43B6-8662-03B729B388CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D962CEB7-317D-43B6-8662-03B729B388CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D962CEB7-317D-43B6-8662-03B729B388CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
