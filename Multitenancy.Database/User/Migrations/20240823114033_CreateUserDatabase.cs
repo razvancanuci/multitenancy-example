@@ -36,7 +36,7 @@ namespace Multitenancy.Database.User.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    Initials = table.Column<string>(type: "character varying(5)", maxLength: 5, nullable: true),
+                    Organization = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),

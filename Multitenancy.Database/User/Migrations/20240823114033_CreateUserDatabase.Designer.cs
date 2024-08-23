@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Multitenancy.Database.User.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20240821195131_CreateUserDatabase")]
+    [Migration("20240823114033_CreateUserDatabase")]
     partial class CreateUserDatabase
     {
         /// <inheritdoc />
@@ -177,10 +177,6 @@ namespace Multitenancy.Database.User.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Initials")
-                        .HasMaxLength(5)
-                        .HasColumnType("character varying(5)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
 
@@ -194,6 +190,10 @@ namespace Multitenancy.Database.User.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
+
+                    b.Property<string>("Organization")
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");

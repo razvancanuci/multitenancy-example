@@ -10,10 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
-
+builder.Services.AddAuthentication();
 builder.Services.AddIdentityDatabase(builder.Configuration)
-    .AddIdentityApiEndpoints<User>();
+    .AddIdentityApiEndpoints<User>()
+    .AddApiEndpoints()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 

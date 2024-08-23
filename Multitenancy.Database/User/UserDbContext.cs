@@ -14,7 +14,7 @@ public class UserDbContext : IdentityDbContext<User>
     {
         base.OnModelCreating(builder);
 
-        builder.Entity<User>().Property(e => e.Initials).HasMaxLength(5);
+        builder.Entity<User>().Property(e => e.Organization).HasMaxLength(10);
         builder.HasDefaultSchema("user");
     }
 }
