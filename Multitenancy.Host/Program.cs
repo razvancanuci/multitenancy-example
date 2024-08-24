@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Multitenancy;
+using Multitenancy.Database.Tenant;
 using Multitenancy.Database.User;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddIdentityDatabase(builder.Configuration)
     .AddIdentityApiEndpoints<User>()
     .AddApiEndpoints()
     .AddDefaultTokenProviders();
+
+builder.Services.AddMultitenancyDatabase();
 
 var app = builder.Build();
 
