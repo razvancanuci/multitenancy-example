@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Multitenancy.Database\Multitenancy.Database.csproj" />
+      <ProjectReference Include="..\Multitenancy.Application\Multitenancy.Application.csproj" />
     </ItemGroup>
 
 </Project>

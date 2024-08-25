@@ -1,6 +1,6 @@
 using Multitenancy.Database.Tenant;
 
-namespace Multitenancy;
+namespace Multitenancy.Middlewares;
 
 public class MultitenancyMiddleware : IMiddleware
 {
@@ -16,7 +16,8 @@ public class MultitenancyMiddleware : IMiddleware
         var organizationClaim = context.User.Claims.FirstOrDefault(c => c.Type == "organization");
         if (organizationClaim is null)
         {
-            throw new Exception("No organization claim found.");
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return;
         }
 
         var connectionStringTemplate = _configuration.GetConnectionString("TenantDatabaseTemplate");

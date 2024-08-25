@@ -28,6 +28,11 @@ public class TenantDbContext : DbContext
             options.Property(e => e.Id).ValueGeneratedOnAdd();
             options.Property(e => e.Field).IsRequired().HasMaxLength(10);
             options.Property(e => e.Attribute).IsRequired().HasMaxLength(10);
+            options.HasData(new[]
+            {
+                new Data {Id = 1, Attribute = "attrib", Field = "field"},
+                new Data {Id = 2, Attribute = "attrib2", Field = "field2"}
+            });
         });
         
         modelBuilder.HasDefaultSchema("tenant");

@@ -1,23 +1,27 @@
 using Microsoft.AspNetCore.Identity;
 using Multitenancy;
+using Multitenancy.Application;
 using Multitenancy.Database.Tenant;
 using Multitenancy.Database.User;
+using Multitenancy.Endpoints;
+using Multitenancy.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAuthorization();
 builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 builder.Services.AddIdentityDatabase(builder.Configuration)
     .AddIdentityApiEndpoints<User>()
-    .AddApiEndpoints()
-    .AddDefaultTokenProviders();
+    .AddApiEndpoints();
 
 builder.Services.AddMultitenancyDatabase();
+
+builder.Services.AddApplicationServices();
+
+builder.Services.AddScoped<MultitenancyMiddleware>();
 
 var app = builder.Build();
 
@@ -32,6 +36,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapIdentityApi<User>();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapOrganizationEndpoints();
 
 app.Run();

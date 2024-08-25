@@ -3,6 +3,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Multitenancy.Database.Tenant.Migrations
 {
     /// <inheritdoc />
@@ -27,6 +29,16 @@ namespace Multitenancy.Database.Tenant.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Data", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                schema: "tenant",
+                table: "Data",
+                columns: new[] { "Id", "Attribute", "Field" },
+                values: new object[,]
+                {
+                    { 1, "attrib", "field" },
+                    { 2, "attrib2", "field2" }
                 });
         }
 

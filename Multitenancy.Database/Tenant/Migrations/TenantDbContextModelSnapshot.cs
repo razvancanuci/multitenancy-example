@@ -43,6 +43,20 @@ namespace Multitenancy.Database.Tenant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Data", "tenant");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Attribute = "attrib",
+                            Field = "field"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Attribute = "attrib2",
+                            Field = "field2"
+                        });
                 });
 #pragma warning restore 612, 618
         }

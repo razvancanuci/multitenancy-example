@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Multitenancy.Database.Tenant.Migrations
 {
     [DbContext(typeof(TenantDbContext))]
-    [Migration("20240824112713_CreateTenantDatabase")]
+    [Migration("20240825102940_CreateTenantDatabase")]
     partial class CreateTenantDatabase
     {
         /// <inheritdoc />
@@ -46,6 +46,20 @@ namespace Multitenancy.Database.Tenant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Data", "tenant");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Attribute = "attrib",
+                            Field = "field"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Attribute = "attrib2",
+                            Field = "field2"
+                        });
                 });
 #pragma warning restore 612, 618
         }
