@@ -39,6 +39,9 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapOrganizationEndpoints();
+var apiGroup = app.MapGroup("/api");
+
+apiGroup.MapOrganizationEndpoints()
+.MapTenantEndpoints();
 
 app.Run();
