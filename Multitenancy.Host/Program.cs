@@ -46,4 +46,5 @@ var apiGroup = app.MapGroup("/api");
 apiGroup.MapOrganizationEndpoints()
 .MapTenantEndpoints();
 
+app.MapIdentityApi<User>();
 app.Run();
