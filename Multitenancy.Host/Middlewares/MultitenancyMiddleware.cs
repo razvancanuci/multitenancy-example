@@ -13,6 +13,12 @@ public class MultitenancyMiddleware : IMiddleware
     }
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
+        if (!context.Request.Path.HasValue || !context.Request.Path.Value.Contains("/tenant"))
+        {
+            await next(context);
+            return;
+        }
+
         var organizationClaim = context.User.Claims.FirstOrDefault(c => c.Type == "organization");
         if (organizationClaim is null)
         {
