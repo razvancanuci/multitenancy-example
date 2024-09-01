@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Multitenancy;
 using Multitenancy.Application;
+using Multitenancy.CustomUser;
 using Multitenancy.Database.Tenant;
 using Multitenancy.Database.User;
 using Multitenancy.Endpoints;
@@ -18,6 +20,8 @@ builder.Services.AddIdentityDatabase(builder.Configuration)
     .AddApiEndpoints();
 
 builder.Services.AddMultitenancyDatabase();
+
+builder.Services.AddCustomUserProperties();
 
 builder.Services.AddApplicationServices();
 
